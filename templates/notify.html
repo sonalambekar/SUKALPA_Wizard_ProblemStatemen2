@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 100px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+    .nav{
+display: flex;
+flex-direction: row;
+align-items: center;
+position: absolute;
+top: 10px;
+right: 10px;
+
+}
+li{
+  padding: 10px;
+}
+.notification-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    background-color: #e7f1ff;
+    color: #007BFF;
+    font-size: 1.1em;
+}
+
+</style>
+<body style="background-color:#aaa4bc" >
+    <nav class="navbar" style="background-color:currentColor">
+        <a class="navbar-brand" style="color: white; font-size: 30px">BookNook</a>
+        <ul class="nav navbar-nav ml-auto">
+            <li><a href="/home" style="color: white">Home</a></li>
+            <li><a href="/recommendation" style="color: white">Recommendation</a></li>
+            <li><a href="/contactus" style="color: white">Contact Us</a></li>
+            <li><a href="/reviews" style="color: white;">Reviews</a></li>
+            <li><a href="/notify" style="color: white;">Notifications</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <p>Explore our new arrivals and find your next favorite book.</p>
+        <div id="notification" class="notification-box"></div>
+    </div>
+    
+    
+   <script>
+      // Array of new arrival books
+const newBooks = [
+    "The Silent Patient by Alex Michaelides",
+    "Where the Crawdads Sing by Delia Owens",
+    "Becoming by Michelle Obama",
+    "Educated by Tara Westover",
+    "The Tattooist of Auschwitz by Heather Morris"
+];
+
+// Function to show new arrival book in the notification box
+function showNewArrival() {
+    const book = newBooks[Math.floor(Math.random() * newBooks.length)];
+    document.getElementById('notification').textContent = `New Arrival: ${book}`;
+}
+
+// Show new arrival after DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    showNewArrival();
+    // Set interval to show new arrival every minute (60000 milliseconds)
+    setInterval(showNewArrival, 2000);
+});
+
+   </script>
+</body>
+</html>
